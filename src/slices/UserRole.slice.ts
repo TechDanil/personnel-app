@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { UserRole } from "../enums/UserRole";
+import { UserRoleTypes } from "../enums/UserRoleTypes";
 
 interface IInitialState {
-    userRole: UserRole | null;
+    userRole: UserRoleTypes | null;
 }
 
 const initialState: IInitialState = {
     userRole: null,
 }
 
-const Auth = createSlice({
+const UserRole = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setUserRole: (state, action: PayloadAction<UserRole | null>) => {
+        setUserRole: (state, action: PayloadAction<UserRoleTypes | null>) => {
             state.userRole = action.payload;
         },
 
@@ -23,5 +23,5 @@ const Auth = createSlice({
     }
 });
 
-export const { setUserRole, resetUserRole } = Auth.actions;
-export default Auth.reducer;
+export const { setUserRole, resetUserRole } = UserRole.actions;
+export default UserRole.reducer;
